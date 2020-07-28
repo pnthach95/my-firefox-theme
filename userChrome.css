@@ -1,51 +1,51 @@
 @-moz-document url(chrome://browser/content/browser.xul), url(chrome://browser/content/browser.xhtml) {
   /* Hide buttons **/
-  :root:not([customizing]) #nav-bar toolbarbutton {
+/*   :root:not([customizing]) #nav-bar toolbarbutton {
     margin-left: -30px !important;
     opacity: 0 !important;
     pointer-events: none !important;
     transition: all 100ms var(--animation-easing-function) !important;
-  }
+  } */
 
   /* Show on hover or focus */
-  :root:not([customizing]) :hover > #nav-bar toolbarbutton,
+/*   :root:not([customizing]) :hover > #nav-bar toolbarbutton,
   :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
   :root:not([customizing]) :hover > #titlebar toolbarbutton {
     margin-left: 0 !important;
     opacity: 1 !important;
     pointer-events: auto !important;
-  }
+  } */
 
   /* Don't hide tab buttons */
-  :root:not([customizing]) :hover > #titlebar #TabsToolbar toolbarbutton {
+/*   :root:not([customizing]) :hover > #titlebar #TabsToolbar toolbarbutton {
     margin-left: 0px !important;
     opacity: 1 !important;
     pointer-events: auto !important;
-  }
+  } */
 
 
   /* Hide controls on urlbar focus */
-  :root:not([customizing]) #navigator-toolbox #nav-bar #urlbar-container:focus-within {
+/*   :root:not([customizing]) #navigator-toolbox #nav-bar #urlbar-container:focus-within {
     width: 100% !important;
     position: absolute !important;
     left: 0 !important;
     white-space: nowrap;
-  }
+  } */
 
-  :root:not([customizing]) #navigator-toolbox #nav-bar #urlbar-container:focus-within #urlbar {
+/*   :root:not([customizing]) #navigator-toolbox #nav-bar #urlbar-container:focus-within #urlbar {
     width: 100% !important;
-  }
+  } */
 
   /* Move tabs 35% to right */
-  #TabsToolbar {
+/*   #TabsToolbar {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
     margin-left: 36vw !important;
-  }
+  } */
 
   /* Move navigation 65% to left and negative margin to move to top line */
   #nav-bar {
-    margin-right: 64vw !important;
+    margin-right: 150px !important;
     margin-top: -32px !important;
     background: transparent !important;
     padding-top: 0px !important;
@@ -64,9 +64,9 @@
     min-height: 29px !important;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1500px) {
     /* Full size url bar on small screen if url bar is focused */
-    #navigator-toolbox #nav-bar:focus-within {
+/*     #navigator-toolbox #nav-bar:focus-within {
       margin-right: 0vw !important;
       z-index: 2 !important;
       background-attachment: fixed !important;
@@ -75,14 +75,14 @@
       background-position: right top !important;
       background-repeat: no-repeat !important;
       background-size: auto auto !important;
-    }
+    } */
     /* Buttons leave hidden on hover */
-    :root:not([customizing]) :hover > #nav-bar toolbarbutton,
+/*     :root:not([customizing]) :hover > #nav-bar toolbarbutton,
     :root:not([customizing]) :hover > #titlebar toolbarbutton {
       margin-left: -30px !important;
       opacity: 0 !important;
       pointer-events: none !important;
-    }
+    } */
     /* Do not hide buttons on urlbar focus */
     :root:not([customizing]) #navigator-toolbox #nav-bar #urlbar-container:focus-within {
       position: static !important;
@@ -94,10 +94,6 @@
     .tabbrowser-arrowscrollbox > .arrowscrollbox-overflow-end-indicator:not([collapsed]) {
       background-image: none !important;
     }
-  }
-
-  .titlebar-max {
-    display: none
   }
 
   .titlebar-button {
@@ -112,11 +108,7 @@
     background-color: green !important;
   }
 
-  .titlebar-spacer {
-    display: none
-  }
-
-  #identity-icon-labels {
+  #identity-icon-labels, .titlebar-spacer {
     display: none
   }
 }
@@ -532,3 +524,7 @@
 /*** End of: Megabar Styler One-Offs ***/
 
 .browserContainer { background-color: #000000 !important; }
+
+tabs, #alltabs-button {
+  display: none
+}
