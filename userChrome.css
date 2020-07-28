@@ -101,14 +101,22 @@
   }
 
   .titlebar-close:hover {
-    background-color: red !important;
+    background-color: crimson !important;
+  }
+  
+  .titlebar-restore:hover {
+    background-color: goldenrod !important;
+  }
+  
+  .titlebar-max:hover {
+    background-color: purple !important;
   }
 
   .titlebar-min:hover {
-    background-color: green !important;
+    background-color: seagreen !important;
   }
 
-  #identity-icon-labels, .titlebar-spacer {
+  tabs, #alltabs-button, #sidebar-header, #identity-icon-labels, .titlebar-spacer {
     display: none
   }
 }
@@ -524,7 +532,3 @@
 /*** End of: Megabar Styler One-Offs ***/
 
 .browserContainer { background-color: #000000 !important; }
-
-tabs, #alltabs-button {
-  display: none
-}
