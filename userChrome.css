@@ -46,7 +46,7 @@
   /* Move navigation 65% to left and negative margin to move to top line */
   #nav-bar {
     margin-right: 150px !important;
-    margin-top: -32px !important;
+    margin-top: -30px !important;
     background: transparent !important;
     padding-top: 0px !important;
     z-index: 2;
