@@ -58,7 +58,11 @@
   background-color: seagreen !important;
 }
 
-tabs #alltabs-button #sidebar-header #identity-icon-labels .titlebar-spacer {
+tabs,
+#alltabs-button,
+#sidebar-header,
+#identity-icon-labels,
+.titlebar-spacer {
   display: none;
 }
 
@@ -330,7 +334,8 @@ tabs #alltabs-button #sidebar-header #identity-icon-labels .titlebar-spacer {
   background-color: #000000 !important;
 }
 
-#urlbar:not([focused]) #urlbar-input #urlbar:not([focused]) .urlbar-input {
+#urlbar:not([focused]) #urlbar-input,
+#urlbar:not([focused]) .urlbar-input {
   text-align: center !important;
 }
 
