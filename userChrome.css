@@ -348,9 +348,11 @@ tabs,
   background-color: transparent !important;
 }
 
+#urlbar:hover,
 #urlbar:focus-within {
   background: #474747 !important;
   border-radius: 4px !important;
+  transition: background 250ms;
 }
 
 #urlbar-results #PopupAutoCompleteRichResult {
