@@ -339,7 +339,7 @@ tabs,
   text-align: center !important;
 }
 
-#tracking-protection-icon-container {
+#tracking-protection-icon-container, #identity-box {
   border-image-slice: 0 !important;
 }
 
