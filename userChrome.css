@@ -17,6 +17,7 @@
   border-radius: 0 !important;
   margin: 0 1px 0 0 !important;
   min-height: 29px !important;
+  transition: background 250ms, border-radius 250ms;
 }
 
 @media (max-width: 1500px) {
@@ -327,7 +328,7 @@ tabs,
 
 /* Bookmark background color */
 #PersonalToolbar {
-  background-color: #0c0c0d !important;
+  background-color: #1C1B22 !important;
 }
 
 .browserContainer {
