@@ -359,3 +359,20 @@ tabs,
 #urlbar-results #PopupAutoCompleteRichResult {
   background-color: blue;
 }
+
+#personal-bookmarks menupopup .bookmark-item {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-inline-start: 5px !important;
+  padding-inline-end: 5px !important;
+  padding-block: 0px !important;
+}
+
+#PlacesToolbar menuitem,
+#PlacesToolbar menu {
+  margin: 0 !important;
+}
+
+#PlacesToolbar menupopup {
+  --panel-subview-body-padding: 0;
+}
