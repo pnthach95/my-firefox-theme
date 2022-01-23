@@ -382,20 +382,21 @@ tabs,
  https://github.com/ayushhroyy/elegantfox
  */
 
-#context-navigation,
-#context-sep-navigation,
-#context-bookmarklink,
-#context-viewinfo,
-#context-viewpartialsource-selection,
+/* #context-navigation, */
+/* #context-sep-navigation, */
+/* #context-bookmarklink, */
+/* #context-viewinfo, */
+/* #context-viewpartialsource-selection, */
 #inspect-separator,
-#context-savelink,
-#context-sendimage,
-#context-setDesktopBackground,
-#context_reloadTab,
-#context_moveTabOptions,
-#context_bookmarkTab,
-.bookmarks-actions-menuseparator,
-.openintabs-menuitem {
+/* #context-savelink, */
+/* #context-sendimage, */
+#context-setDesktopBackground
+/* #context_reloadTab, */
+/* #context_moveTabOptions, */
+/* #context_bookmarkTab, */
+/* .bookmarks-actions-menuseparator, */
+/* .openintabs-menuitem { */
+{
     display: none !important;
 }
 
@@ -510,6 +511,6 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
         --tab-corner-rounding: 7px;
         --button-corner-rounding: 20px;
         --menu-corner-rounding: 10px;
-        --menu-item-height: 30px;
+        --menu-item-height: 25px;
         --animation-speed: 0.4s;
     }
