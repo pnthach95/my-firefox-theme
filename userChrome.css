@@ -1,9 +1,9 @@
 /* Move navigation 65% to left and negative margin to move to top line */
 #nav-bar {
-  margin-right: 150px !important;
-  margin-top: -30px !important;
+/*   margin-right: 150px !important; */
+  margin-top: -40px !important;
+  margin-left: 70px !important;
   background: transparent !important;
-  padding-top: 0px !important;
   z-index: 2;
 }
 
@@ -22,14 +22,14 @@
 
 @media (max-width: 1500px) {
   /* Do not hide buttons on urlbar focus */
-  :root:not([customizing])
+/*   :root:not([customizing])
     #navigator-toolbox
     #nav-bar
     #urlbar-container:focus-within {
     position: static !important;
     width: auto !important;
   }
-
+ */
   /* Hide shadow over url bar */
   .tabbrowser-arrowscrollbox
     > .arrowscrollbox-overflow-start-indicator:not([collapsed]),
@@ -37,6 +37,10 @@
     > .arrowscrollbox-overflow-end-indicator:not([collapsed]) {
     background-image: none !important;
   }
+}
+
+#titlebar {
+  height: 40px
 }
 
 .titlebar-button {
@@ -452,8 +456,6 @@ menupopup menuseparator
 .panel-arrowcontainer .panel-arrowcontent, .menupopup-arrowscrollbox, hbox[flex="1"][part="innerbox"] {
     border-radius: var(--menu-corner-rounding) !important;
 }
-
-
 
 
 .in-bookmarks-menu {
