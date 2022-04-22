@@ -333,7 +333,12 @@ tabs,
 /* Bookmark background color */
 #PersonalToolbar {
    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+   -moz-font-smoothing-background-color: -moz-mac-vibrant-titlebar-dark !important;
    background-color: transparent !important;
+}
+
+#TabsToolbar, #nav-bar, #PersonalToolbar {
+ -moz-appearance: -moz-mac-vibrancy-dark !important;
 }
 
 .browserContainer {
@@ -517,6 +522,11 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
         --menu-item-height: 25px;
         --animation-speed: 0.4s;
     }
+
+#main-window
+{
+    background: transparent !important;
+}
 
 /* ------------------------------------ */
 /* Firefox Translucent Tabbar for macOS */
