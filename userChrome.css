@@ -536,12 +536,12 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
   background-color: transparent !important; 
 }
 
-:root #TabsToolbar,
+/* :root #TabsToolbar,
 :root #titlebar,
 :root #tabbrowser-tabs {
-   -moz-appearance: -moz-mac-vibrant-titlebar-light !important;
+   -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
    background-color: transparent !important;
-}
+} */
 
 /* De-emphasize tab icons and names when window is unfocused */
 :root:-moz-window-inactive .tab-content {
@@ -556,7 +556,7 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
 
 /* make tabs toolbar translucent */
 :root:not(:-moz-window-inactive [lwthemetextcolor="bright"]) #TabsToolbar {
-   -moz-appearance: -moz-mac-vibrant-titlebar-light !important;
+   -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
 }
 :root:not(:-moz-window-inactive)[lwthemetextcolor="bright"] #TabsToolbar {
    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
