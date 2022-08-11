@@ -334,6 +334,7 @@ tabs,
 #PersonalToolbar {
    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
    -moz-font-smoothing-background-color: -moz-mac-vibrant-titlebar-dark !important;
+   -moz-appearance: -moz-mac-source-list !important;
    background-color: transparent !important;
 }
 
@@ -533,15 +534,16 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
 /* ------------------------------------ */
 
 :root:not(:-moz-window-inactive) #navigator-toolbox {
-  background-color: transparent !important; 
+  background-color: transparent !important;
 }
 
-/* :root #TabsToolbar,
+:root #TabsToolbar,
 :root #titlebar,
 :root #tabbrowser-tabs {
    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+   -moz-appearance: -moz-mac-source-list !important;
    background-color: transparent !important;
-} */
+}
 
 /* De-emphasize tab icons and names when window is unfocused */
 :root:-moz-window-inactive .tab-content {
@@ -555,22 +557,26 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
 }
 
 /* make tabs toolbar translucent */
-:root:not(:-moz-window-inactive [lwthemetextcolor="bright"]) #TabsToolbar {
+/* FF 99 > lwthemetextcolor="bright" */
+/* FF 100< lwt-default-theme-in-dark-mode="true" */
+:root:not(:-moz-window-inactive [lwt-default-theme-in-dark-mode]) #TabsToolbar {
    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+   -moz-appearance: -moz-mac-source-list !important;
 }
-:root:not(:-moz-window-inactive)[lwthemetextcolor="bright"] #TabsToolbar {
+:root:not(:-moz-window-inactive)[lwt-default-theme-in-dark-mode] #TabsToolbar {
    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+   -moz-appearance: -moz-mac-source-list !important;
 }
 
-:root:-moz-window-inactive[lwthemetextcolor="bright"] {
+:root:-moz-window-inactive[lwt-default-theme-in-dark-mode] {
   --lwt-accent-color-inactive: rgb(40,40,40) !important;
 }
 
-:root:not([lwthemetextcolor="bright"]) .tabbrowser-tab:not([selected="true"]) {
+:root:not([lwt-default-theme-in-dark-mode]) .tabbrowser-tab:not([selected="true"]) {
   color: #000 !important;
 }
 
-:root[lwthemetextcolor="bright"] {
+:root[lwt-default-theme-in-dark-mode] {
   --tab-line-color: hsla(280,30%,80%,0.9) !important;
 }
 
