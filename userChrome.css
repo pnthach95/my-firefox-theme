@@ -606,3 +606,7 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
 :root[lwthemetextcolor="bright"] #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280,6%,0%,0.3), 0 -4px 4px -5px hsla(280,6%,0%,0.05) !important;
 }
+
+#private-browsing-indicator-with-label label {
+  display: none !important;
+}
