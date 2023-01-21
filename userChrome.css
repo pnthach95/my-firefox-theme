@@ -435,20 +435,9 @@ hbox[flex="1"][part="innerbox"] {
   border-radius: var(--menu-corner-rounding) !important;
 }
 
-
-
-
 .in-bookmarks-menu {
   padding-bottom: 5px !important;
   padding-top: 5px !important;
-}
-
-
-menu,
-menuitem,
-menucaption {
-  -moz-appearance: none !important;
-  height: var(--menu-item-height) !important;
 }
 
 menu,
