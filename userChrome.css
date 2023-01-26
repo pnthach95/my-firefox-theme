@@ -21,6 +21,7 @@
 }
 
 @media (max-width: 1500px) {
+
   /* Do not hide buttons on urlbar focus */
   /*   :root:not([customizing])
     #navigator-toolbox
@@ -432,7 +433,6 @@ menupopup menuseparator {
   padding: 6px 0 !important;
 }
 
-
 .panel-arrowcontent {
   padding-top: 0px !important;
   border: none !important;
@@ -450,18 +450,9 @@ hbox[flex="1"][part="innerbox"] {
   border-radius: var(--menu-corner-rounding) !important;
 }
 
-
 .in-bookmarks-menu {
   padding-bottom: 5px !important;
   padding-top: 5px !important;
-}
-
-
-menu,
-menuitem,
-menucaption {
-  -moz-appearance: none !important;
-  height: var(--menu-item-height) !important;
 }
 
 menu,
@@ -566,7 +557,6 @@ panelview toolbarbutton:not(#fxa-manage-account-button) {
 :root[lwt-default-theme-in-dark-mode] {
   --tab-line-color: hsla(280, 30%, 80%, 0.9) !important;
 }
-
 
 /* improve border visiblity for selected tabs */
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
