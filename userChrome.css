@@ -477,9 +477,9 @@ menu:not(.subviewbutton)>.menu-right image {
   border-bottom-color: transparent !important;
 }
 
-panelview toolbarbutton:not(#fxa-manage-account-button) {
+/* panelview toolbarbutton:not(#fxa-manage-account-button) {
   height: var(--menu-item-height) !important;
-}
+} */
 
 #BMB_bookmarksPopup .menu-right {
   height: 23px !important;
