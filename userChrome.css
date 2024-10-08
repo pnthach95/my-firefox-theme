@@ -570,3 +570,7 @@ menu:not(.subviewbutton)>.menu-right image {
 #private-browsing-indicator-with-label label {
   display: none !important;
 }
+
+#navigator-toolbox {
+  border-bottom: none !important;
+}
