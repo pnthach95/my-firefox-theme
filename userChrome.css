@@ -486,3 +486,7 @@ menu:not(.subviewbutton)>.menu-right image {
   --menu-item-height: 25px;
   --animation-speed: 0.4s;
 }
+
+#navigator-toolbox {
+  border-bottom: none !important;
+}
