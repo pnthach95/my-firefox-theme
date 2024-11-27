@@ -1,123 +1,115 @@
-/* Move navigation 65% to left and negative margin to move to top line */
-#nav-bar {
-  /*   margin-right: 150px !important; */
-  margin-top: -40px !important;
-  margin-left: 70px !important;
-  background: transparent !important;
-  z-index: 2;
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar_v2.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* This requires Firefox 133+ to work */
+
+@media (-moz-bool-pref: "sidebar.verticalTabs"){
+  #sidebar-main{
+    visibility: collapse;
+  }
+}
+@media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"){
+  #nav-bar > .titlebar-buttonbox-container{
+    order: -1 !important;
+    > .titlebar-buttonbox{
+      flex-direction: row-reverse;
+    }
+  }
+}
+@media not (-moz-bool-pref: "sidebar.verticalTabs"){
+  #TabsToolbar{
+    visibility: collapse;
+  }
+  :root[sizemode="fullscreen"] #nav-bar > .titlebar-buttonbox-container{
+    display: flex !important;
+  }
+  :root[tabsintitlebar] #toolbar-menubar:not([autohide="false"]) ~ #nav-bar{
+    > .titlebar-buttonbox-container{
+      display: flex !important;
+    }
+    :root[sizemode="normal"] & {
+      > .titlebar-spacer{
+        display: flex !important;
+      }
+    }
+    :root[sizemode="maximized"] & {
+      > .titlebar-spacer[type="post-tabs"]{
+        display: flex !important;
+      }
+      @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
+        (-moz-gtk-csd-reversed-placement),
+        (-moz-platform: macos){
+        > .titlebar-spacer[type="post-tabs"]{
+          display: none !important;
+        }
+        > .titlebar-spacer[type="pre-tabs"]{
+          display: flex !important;
+        }
+      }
+    }
+  }
 }
 
-/* Full height url bar without border radius */
-#nav-bar {
-  min-height: 29px !important;
-}
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/menulike_bookmarks_folder_popups.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
 
-#urlbar {
-  border: 0px solid transparent !important;
+/* This style makes menus from bookmarks toolbar folders look like context menus do (on Win10) which was the behavior pre-fx92 */
+
+menupopup[placespopup="true"]{
+  padding: 0 !important;
+  margin: 0 !important;
+  --arrowpanel-background: var(--menu-background-color,Menu) !important;
+  border-radius: var(--panel-border-radius) !important;
+}
+.menupopup-arrowscrollbox{
+  margin-top: 1px !important;
+  border: 1px solid var(--panel-border-color) !important;
+  padding: var(--panel-padding) !important;
+  border-radius: var(--panel-border-radius) !important;
+}
+:where(menupopup[placespopup="true"]) menu,
+:where(menupopup[placespopup="true"]) menuitem{
+  margin-inline: 0 !important;
+  padding-inline-start: 1em !important;
   border-radius: 0 !important;
-  margin: 0 1px 0 0 !important;
-  min-height: 29px !important;
-  transition: background 250ms, border-radius 250ms;
+  padding-block: 0.5em !important;
 }
 
-@media (max-width: 1500px) {
-
-  /* Do not hide buttons on urlbar focus */
-  /*   :root:not([customizing])
-    #navigator-toolbox
-    #nav-bar
-    #urlbar-container:focus-within {
-    position: static !important;
-    width: auto !important;
-  }
- */
-  /* Hide shadow over url bar */
-  .tabbrowser-arrowscrollbox>.arrowscrollbox-overflow-start-indicator:not([collapsed]),
-  .tabbrowser-arrowscrollbox>.arrowscrollbox-overflow-end-indicator:not([collapsed]) {
-    background-image: none !important;
-  }
-}
-
-#titlebar {
-  height: 40px
-}
-
-.titlebar-button {
-  background-color: transparent !important;
-}
-
-.titlebar-close:hover {
-  background-color: crimson !important;
-}
-
-.titlebar-restore:hover {
-  background-color: goldenrod !important;
-}
-
-.titlebar-max:hover {
-  background-color: purple !important;
-}
-
-.titlebar-min:hover {
-  background-color: seagreen !important;
-}
-
-tabs,
-#alltabs-button,
-#sidebar-header,
-#identity-icon-labels,
-.titlebar-spacer {
-  display: none;
-}
-
-/*** Megabar Styler General - version 2020-04-19 ***/
-
+/*** Megabar Styler General - version 2023-03-23 ***/
 /*** General Preferences ***/
 :root {
   /* Number of pixels of enlargement when URL bar is focused */
-  --mbarstyler-popout-pixels: 0px;
-  /* [0px - 7px] */
+  --mbarstyler-popout-pixels: 0px; /* [0px - 7px] */
 
   /* Top Bar Display or Not */
-  --mbarstyler-top-bar-display: none;
-  /* [block,none] */
+  --mbarstyler-top-bar-display: block; /* [block,none] */
 
   /* Font sizes (default: 13.8px for title, 10.2px for URL) */
-  --mbarstyler-title-font-size: 15px;
-  /* [13px - 18px] */
-  --mbarstyler-url-font-size: 13px;
-  /* [12px - 16px] */
+  --mbarstyler-title-font-size: 15px; /* [13px - 18px] */
+  --mbarstyler-url-font-size: 13px; /* [12px - 16px] */
 
   /* Rows to show without scrolling */
   --mbarstyler-max-rows-without-scrolling: 10;
 
   /* Bottom border for each result row */
-  --mbarstyler-bottom-border-width: 0px;
-  /* [0px or 1px] */
+  --mbarstyler-bottom-border-width: 0px; /* [0px or 1px] */
+
+  /* Height adjustment for labels (Proton) */
+  --mbarstyler-label-height-adjustment: 35px; /* [0px or 35px] */
 
   /* Match display style */
-  --mbarstyler-match-weight: 700;
-  /* [400,700] */
-  --mbarstyler-match-background-opacity: 0;
-  /* [0.0,0.05,0.1] */
+  --mbarstyler-match-weight: 700; /* [400,700] */
+  --mbarstyler-match-background-opacity: 0.0; /* [0.0,0.05,0.1] */
 }
 
 /*** URL bar enlargement or lack thereof ***/
 
-/* Compute new position, width, and padding */
-#urlbar[breakout][breakout-extend] {
-  top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
-  left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
-  width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
-  padding: var(--mbarstyler-popout-pixels) !important;
-}
-
 [uidensity="compact"] #urlbar[breakout][breakout-extend] {
-  top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
+  top: calc(3px - var(--mbarstyler-popout-pixels) + 1px) !important; /* updated for Proton */
 }
 
 [uidensity="touch"] #urlbar[breakout][breakout-extend] {
-  top: calc(4px - var(--mbarstyler-popout-pixels)) !important;
+  top: calc(4px - var(--mbarstyler-popout-pixels) + 1px) !important; /* updated for Proton */
 }
 
 /* Prevent shift of URL bar contents */
@@ -157,10 +149,9 @@ tabs,
 }
 
 /* Set max-height for items visible without scrolling */
-#urlbarView-results,
-#urlbar-results {
+#urlbarView-results, #urlbar-results {
   height: unset !important;
-  max-height: calc(2.5 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
+  max-height: calc(2.5 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling) + var(--mbarstyler-label-height-adjustment)) !important;
 }
 
 #urlbar-results {
@@ -171,6 +162,21 @@ tabs,
 #urlbar-results {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+/* Clean up extra vertical spacing on "tip" suggestions, shrink icon */
+.urlbarView-row[type="tip"]{
+  padding-block: 0px !important;
+}
+
+.urlbarView-row[type="tip"] > .urlbarView-row-inner {
+  min-height: 0px !important;
+}
+
+.urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-favicon {
+  height: 16px !important;
+  width: 16px !important;
+  flex-basis: 16px !important;
 }
 
 /* Subtle border between results */
@@ -191,30 +197,25 @@ tabs,
 [lwt-popup-brighttext] .urlbarView-row:not([selected]) .urlbarView-url strong {
   font-weight: var(--mbarstyler-match-weight) !important;
   box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, calc(var(--mbarstyler-match-background-opacity) * 2));
-  background-color: rgba(255,
-      255,
-      255,
-      var(--mbarstyler-match-background-opacity));
+  background-color: rgba(255, 255, 255, var(--mbarstyler-match-background-opacity));
   border-radius: 2px;
 }
 
 /*** End of: Megabar Styler General ***/
 
-/*** Megabar Styler Two-Row Flex Layout - version 2020-06-02 ***/
+/*** Megabar Styler Two-Row Flex Layout - version 2021-09-09 ***/
 
 /* !!! Requires variables from Megabar Styler General !!! */
 
 /* Adjust heights for scrolling */
-#urlbarView-results,
-#urlbar-results {
+#urlbarView-results, #urlbar-results {
   max-height: calc(1.625 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-url-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
 }
 
 /* Wrap the url (adapted from Fx75 narrow bar design) */
 .urlbarView-row-inner {
   flex-wrap: wrap !important;
-  padding-top: 0 !important;
-  padding-bottom: 2px !important;
+  padding-block: 2px !important;
 }
 
 .urlbarView-no-wrap {
@@ -223,18 +224,21 @@ tabs,
   position: relative;
 }
 
+/* Remove Proton excess height from search suggestions */
+:root:not([uidensity="compact"]) .urlbarView-row[type="search"]{
+  min-height: unset !important;
+}
+
 /* Adjust horizontal and vertical URL position */
 .urlbarView-row[has-url]>.urlbarView-row-inner>.urlbarView-url {
-  padding-inline-start: calc(6px + 2px +
-      /* favicon */
-      16px) !important;
+  padding-inline-start: calc(6px + 4px + /* favicon */ 16px) !important;
   margin-top: calc(2px + (var(--mbarstyler-url-font-size) - var(--mbarstyler-title-font-size)));
 }
 
 /* Hide the separator if there's a URL */
-.urlbarView.megabar[actionoverride] .urlbarView-row[has-url] .urlbarView-title-separator,
-.urlbarView.megabar .urlbarView-row[has-url]:not([type$="tab"]) .urlbarView-title-separator,
-.urlbarView.megabar .urlbarView-row[type="remotetab"]:-moz-any(:hover, [selected]) .urlbarView-title-separator {
+.urlbarView[actionoverride] .urlbarView-row[has-url] .urlbarView-title-separator,
+.urlbarView .urlbarView-row[has-url]:not([type$=tab]) .urlbarView-title-separator,
+.urlbarView .urlbarView-row[type=remotetab]:-moz-any(:hover, [selected]) .urlbarView-title-separator {
   display: none !important;
 }
 
@@ -253,8 +257,7 @@ tabs,
 }
 
 .urlbarView:not([actionoverride]) .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
-  color: HighlightText;
-  /* 2020-05-31 improve visibility when selected */
+  color: HighlightText; /* 2020-05-31 improve visibility when selected */
 }
 
 .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url::before {
@@ -264,12 +267,10 @@ tabs,
 }
 
 .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
-  color: HighlightText;
-  /* 2020-05-31 improve visibility when selected */
+  color: HighlightText; /* 2020-05-31 improve visibility when selected */
 }
 
 /* Hide the existing Action phrase and separator */
-
 .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-action,
 .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-title-separator {
   display: none !important;
@@ -281,46 +282,6 @@ tabs,
 }
 
 /*** End of: Megabar Styler Two-Row Flex Layout ***/
-
-/*** Megabar Styler One-Offs - version 2020-05-31 ***/
-
-/*** One-Off Search Button Preferences ***/
-
-:root {
-  /* One-Offs Display or Not */
-  --mbarstyler-oneoffs-display: flex;
-  /* [flex,none] */
-}
-
-/* Show or Hide the One-Offs Search Icon Bar */
-#urlbar .search-one-offs:not([hidden]) {
-  display: var(--mbarstyler-oneoffs-display) !important;
-}
-
-/* Shorten the One-Offs Search Icon Bar Vertically */
-#urlbar .search-one-offs:not([hidden]) {
-  padding-block: unset !important;
-}
-
-/* We don't need the text */
-#urlbar .search-one-offs .search-panel-header {
-  display: none !important;
-}
-
-/*** End of: Megabar Styler One-Offs ***/
-
-/* Bookmark background color */
-#TabsToolbar,
-#nav-bar,
-#PersonalToolbar {
-  -moz-default-appearance: menupopup !important;
-  appearance: auto !important;
-  background-color: transparent !important;
-}
-
-.browserContainer {
-  background-color: #000000 !important;
-}
 
 #urlbar:not([focused]) #urlbar-input,
 #urlbar:not([focused]) .urlbar-input {
@@ -348,6 +309,10 @@ tabs,
   background-color: blue;
 }
 
+/* ----------------- */
+/* Compact bookmarks */
+/* ----------------- */
+
 #personal-bookmarks menupopup .bookmark-item {
   margin-left: 0px !important;
   margin-right: 0px !important;
@@ -365,9 +330,13 @@ tabs,
   --panel-subview-body-padding: 0;
 }
 
+/* ----------------- */
+/*        END        */
+/* ----------------- */
+
 /*
- menu
- https://github.com/ayushhroyy/elegantfox
+  menu
+  https://github.com/ayushhroyy/elegantfox
  */
 
 /* #context-navigation, */
@@ -387,107 +356,6 @@ tabs,
 /* .openintabs-menuitem { */
   {
   display: none !important;
-}
-
-menupopup:not(#BMB_bookmarksPopup) {
-  padding: 6px 9px 9px !important;
-  margin: -6px -9px 0 !important;
-  border: 0 !important;
-  background: 0 !important;
-}
-
-menu[open] menupopup:not(#BMB_bookmarksPopup) {
-  margin: -12px -9px 0 !important;
-}
-
-#BMB_bookmarksPopup menu[open] menupopup {
-  transform: translateY(4px) !important;
-}
-
-menupopup menuseparator {
-  margin-top: 5px !important;
-  margin-bottom: 5px !important;
-  padding: 0px !important;
-  border-bottom: none !important;
-  opacity: 0.2 !important;
-}
-
-.menupopup-arrowscrollbox {
-  background: Menu !important;
-  /* fall back if adaptable colors are removed */
-}
-
-.menupopup-arrowscrollbox:not(.in-bookmarks-menu) {
-  padding: 6px 0 !important;
-}
-
-.panel-arrowcontent {
-  padding-top: 0px !important;
-  border: none !important;
-}
-
-/* shadows and rounded corners for menus */
-.menupopup-arrowscrollbox:not(.in-bookmarks-menu) {
-  border-radius: var(--menu-corner-rounding) !important;
-  box-shadow: 0px 2px 9px -3px black !important;
-}
-
-.panel-arrowcontainer .panel-arrowcontent,
-.menupopup-arrowscrollbox,
-hbox[flex="1"][part="innerbox"] {
-  border-radius: var(--menu-corner-rounding) !important;
-}
-
-.in-bookmarks-menu {
-  padding-bottom: 5px !important;
-  padding-top: 5px !important;
-}
-
-menu,
-menuitem,
-menucaption {
-  padding-left: 5px !important;
-  padding-right: 5px !important;
-}
-
-menu:not(.subviewbutton)>.menu-right {
-  margin-top: 2px !important;
-  margin-right: 0px !important;
-  width: 0px !important;
-}
-
-menu:not(.subviewbutton)>.menu-right image {
-  margin-right: -5px !important;
-  margin-top: -2px !important;
-  border: 6px solid var(--toolbar-color) !important;
-  border-top-color: transparent !important;
-  border-right-color: transparent !important;
-  border-bottom-color: transparent !important;
-}
-
-/* panelview toolbarbutton:not(#fxa-manage-account-button) {
-  height: var(--menu-item-height) !important;
-} */
-
-#BMB_bookmarksPopup .menu-right {
-  height: 23px !important;
-}
-
-#sidebar-switcher-bookmarks,
-#customization-uidensity-menuitem-compact {
-  margin-top: 5px !important;
-}
-
-#customization-lwtheme-menu-header {
-  margin-top: 0px !important;
-}
-
-* {
-  --tab-corner-rounding: 7px;
-  --button-corner-rounding: 20px;
-  --menu-corner-rounding: 10px;
-  --menu-item-height: 25px;
-  --animation-speed: 0.4s;
 }
 
 #main-window {
