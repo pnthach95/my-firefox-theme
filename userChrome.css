@@ -39,6 +39,7 @@
   /* [0.0,0.05,0.1] */
 
   --tabpanel-background-color: transparent !important;
+  --sidebar-background-color: transparent !important;
 }
 
 /*** URL bar enlargement or lack thereof ***/
@@ -390,4 +391,9 @@
   :root #nav-bar {
     box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
   }
+}
+
+#sidebar{
+  box-shadow: none !important;
+  border: none !important;
 }
