@@ -1,134 +1,56 @@
-#nav-bar #PersonalToolbar {
-  background: transparent !important;
-}
-
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar_v2.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* This requires Firefox 133+ to work */
-
-@media (-moz-bool-pref: "sidebar.verticalTabs"){
-  #sidebar-main{
-    visibility: collapse;
-  }
-}
-@media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"){
-  #nav-bar > .titlebar-buttonbox-container{
-    order: -1 !important;
-    > .titlebar-buttonbox{
-      flex-direction: row-reverse;
-    }
-  }
-}
-@media not (-moz-bool-pref: "sidebar.verticalTabs"){
-  #TabsToolbar{
-    visibility: collapse;
-  }
-  :root[sizemode="fullscreen"] #nav-bar > .titlebar-buttonbox-container{
-    display: flex !important;
-  }
-  :root[tabsintitlebar] #toolbar-menubar:not([autohide="false"]) ~ #nav-bar{
-    > .titlebar-buttonbox-container{
-      display: flex !important;
-    }
-    :root[sizemode="normal"] & {
-      > .titlebar-spacer{
-        display: flex !important;
-      }
-    }
-    :root[sizemode="maximized"] & {
-      > .titlebar-spacer[type="post-tabs"]{
-        display: flex !important;
-      }
-      @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-        (-moz-gtk-csd-reversed-placement),
-        (-moz-platform: macos){
-        > .titlebar-spacer[type="post-tabs"]{
-          display: none !important;
-        }
-        > .titlebar-spacer[type="pre-tabs"]{
-          display: flex !important;
-        }
-      }
-    }
-  }
-}
-
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/menulike_bookmarks_folder_popups.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* This style makes menus from bookmarks toolbar folders look like context menus do (on Win10) which was the behavior pre-fx92 */
-
-menupopup[placespopup="true"]{
-  padding: 0 !important;
-  margin: 0 !important;
-  --arrowpanel-background: var(--menu-background-color,Menu) !important;
-  border-radius: var(--panel-border-radius) !important;
-}
-.menupopup-arrowscrollbox{
-  margin-top: 1px !important;
-  border: 1px solid var(--panel-border-color) !important;
-  padding: var(--panel-padding) !important;
-  border-radius: var(--panel-border-radius) !important;
-}
-:where(menupopup[placespopup="true"]) menu,
-:where(menupopup[placespopup="true"]) menuitem{
-  margin-inline: 0 !important;
-  padding-inline-start: 1em !important;
-  border-radius: 0 !important;
-  padding-block: 0.5em !important;
-}
-
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/overlay_sidebar_header.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* This is a hack that only "kinda" works! */
-/* Changes sidebar header to appear as small "notch" at the top of the sidebar. Hovering it will show full sidebar so you can have access to sidebar switcher button. The caveat is that you need to click the switcher button TWICE - otherwise the header and switcher popup will hide themselver as soon as cursor is moved on top of the switcher popup. */
-
-#sidebar-header{
-  display: flex;
-  position: absolute;
-  width: inherit;
-  visibility: hidden;
-  background-color: inherit;
-  -moz-user-focus: normal;
+* {
+  --tab-selected-bgcolor: rgba(51, 121, 69, 0.5);
+  --toolbarbutton-active-background: rgba(51, 121, 69, 0.5);
+  --arrowpanel-background: rgb(10, 32, 27);
 }
 
 /*** Megabar Styler General - version 2023-03-23 ***/
 /*** General Preferences ***/
 :root {
   /* Number of pixels of enlargement when URL bar is focused */
-  --mbarstyler-popout-pixels: 0px; /* [0px - 7px] */
+  --mbarstyler-popout-pixels: 0px;
+  /* [0px - 7px] */
 
   /* Top Bar Display or Not */
-  --mbarstyler-top-bar-display: block; /* [block,none] */
+  --mbarstyler-top-bar-display: block;
+  /* [block,none] */
 
   /* Font sizes (default: 13.8px for title, 10.2px for URL) */
-  --mbarstyler-title-font-size: 15px; /* [13px - 18px] */
-  --mbarstyler-url-font-size: 13px; /* [12px - 16px] */
+  --mbarstyler-title-font-size: 15px;
+  /* [13px - 18px] */
+  --mbarstyler-url-font-size: 13px;
+  /* [12px - 16px] */
 
   /* Rows to show without scrolling */
   --mbarstyler-max-rows-without-scrolling: 10;
 
   /* Bottom border for each result row */
-  --mbarstyler-bottom-border-width: 0px; /* [0px or 1px] */
+  --mbarstyler-bottom-border-width: 0px;
+  /* [0px or 1px] */
 
   /* Height adjustment for labels (Proton) */
-  --mbarstyler-label-height-adjustment: 35px; /* [0px or 35px] */
+  --mbarstyler-label-height-adjustment: 35px;
+  /* [0px or 35px] */
 
   /* Match display style */
-  --mbarstyler-match-weight: 700; /* [400,700] */
-  --mbarstyler-match-background-opacity: 0.0; /* [0.0,0.05,0.1] */
+  --mbarstyler-match-weight: 700;
+  /* [400,700] */
+  --mbarstyler-match-background-opacity: 0.0;
+  /* [0.0,0.05,0.1] */
+
+  --tabpanel-background-color: transparent !important;
 }
 
 /*** URL bar enlargement or lack thereof ***/
 
 [uidensity="compact"] #urlbar[breakout][breakout-extend] {
-  top: calc(3px - var(--mbarstyler-popout-pixels) + 1px) !important; /* updated for Proton */
+  top: calc(3px - var(--mbarstyler-popout-pixels) + 1px) !important;
+  /* updated for Proton */
 }
 
 [uidensity="touch"] #urlbar[breakout][breakout-extend] {
-  top: calc(4px - var(--mbarstyler-popout-pixels) + 1px) !important; /* updated for Proton */
+  top: calc(4px - var(--mbarstyler-popout-pixels) + 1px) !important;
+  /* updated for Proton */
 }
 
 /* Prevent shift of URL bar contents */
@@ -168,7 +90,8 @@ See the above repository for updates as well as full license text. */
 }
 
 /* Set max-height for items visible without scrolling */
-#urlbarView-results, #urlbar-results {
+#urlbarView-results,
+#urlbar-results {
   height: unset !important;
   max-height: calc(2.5 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling) + var(--mbarstyler-label-height-adjustment)) !important;
 }
@@ -184,15 +107,15 @@ See the above repository for updates as well as full license text. */
 }
 
 /* Clean up extra vertical spacing on "tip" suggestions, shrink icon */
-.urlbarView-row[type="tip"]{
+.urlbarView-row[type="tip"] {
   padding-block: 0px !important;
 }
 
-.urlbarView-row[type="tip"] > .urlbarView-row-inner {
+.urlbarView-row[type="tip"]>.urlbarView-row-inner {
   min-height: 0px !important;
 }
 
-.urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-favicon {
+.urlbarView-row[type="tip"]>.urlbarView-row-inner>.urlbarView-no-wrap>.urlbarView-favicon {
   height: 16px !important;
   width: 16px !important;
   flex-basis: 16px !important;
@@ -227,7 +150,8 @@ See the above repository for updates as well as full license text. */
 /* !!! Requires variables from Megabar Styler General !!! */
 
 /* Adjust heights for scrolling */
-#urlbarView-results, #urlbar-results {
+#urlbarView-results,
+#urlbar-results {
   max-height: calc(1.625 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-url-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
 }
 
@@ -244,13 +168,15 @@ See the above repository for updates as well as full license text. */
 }
 
 /* Remove Proton excess height from search suggestions */
-:root:not([uidensity="compact"]) .urlbarView-row[type="search"]{
+:root:not([uidensity="compact"]) .urlbarView-row[type="search"] {
   min-height: unset !important;
 }
 
 /* Adjust horizontal and vertical URL position */
 .urlbarView-row[has-url]>.urlbarView-row-inner>.urlbarView-url {
-  padding-inline-start: calc(6px + 4px + /* favicon */ 16px) !important;
+  padding-inline-start: calc(6px + 4px +
+      /* favicon */
+      16px) !important;
   margin-top: calc(2px + (var(--mbarstyler-url-font-size) - var(--mbarstyler-title-font-size)));
 }
 
@@ -276,7 +202,8 @@ See the above repository for updates as well as full license text. */
 }
 
 .urlbarView:not([actionoverride]) .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
-  color: HighlightText; /* 2020-05-31 improve visibility when selected */
+  color: HighlightText;
+  /* 2020-05-31 improve visibility when selected */
 }
 
 .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url::before {
@@ -286,7 +213,8 @@ See the above repository for updates as well as full license text. */
 }
 
 .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
-  color: HighlightText; /* 2020-05-31 improve visibility when selected */
+  color: HighlightText;
+  /* 2020-05-31 improve visibility when selected */
 }
 
 /* Hide the existing Action phrase and separator */
@@ -366,6 +294,7 @@ See the above repository for updates as well as full license text. */
 /* #context-savelink, */
 /* #context-sendimage, */
 #context-setDesktopBackground
+
 /* #context_reloadTab, */
 /* #context_moveTabOptions, */
 /* #context_bookmarkTab, */
@@ -393,4 +322,72 @@ See the above repository for updates as well as full license text. */
 
 .titlebar-spacer {
   width: 0px !important;
+}
+
+/* ------------------------------------ */
+/* Firefox Translucent Tabbar for macOS */
+/* ------------------------------------ */
+/* https://github.com/zvuc/firefox-macos-native-tabbar */
+
+:root#main-window {
+  background-color: transparent !important;
+}
+
+:root:not(:-moz-window-inactive) #navigator-toolbox {
+  background-color: transparent !important;
+}
+
+/* make tabs toolbar translucent */
+:root #TabsToolbar,
+:root #titlebar,
+:root #tabbrowser-tabs,
+.browser-toolbox-background {
+  -moz-default-appearance: -moz-window-titlebar !important;
+  appearance: -moz-window-titlebar !important;
+  background-color: transparent !important;
+}
+
+/* De-emphasize tab icons and names when window is unfocused */
+:root:-moz-window-inactive .tab-content {
+  opacity: 0.6;
+}
+
+/* recolor toolbar button hover/active bg colors to semi-transparent */
+:root {
+  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 11%, transparent) !important;
+  --toolbarbutton-active-background: color-mix(in srgb, currentColor 21%, transparent) !important;
+}
+
+/* improve border visiblity for selected tabs */
+.tab-background:is([selected], [multiselected]):-moz-lwtheme {
+  border: none !important;
+}
+
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+  box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .1), 0 1px 5px rgba(0, 0, 0, .1) !important;
+}
+
+:root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+  box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .05) !important;
+}
+
+@media (-moz-content-prefers-color-scheme: dark) {
+  :root #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+    box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) hsla(280, 6%, 60%, 0.5) inset, 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .6), 0 1px 5px rgba(0, 0, 0, .1) !important;
+  }
+
+  :root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+    box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .4) !important;
+  }
+}
+
+/* border between tab bar and navbar */
+:root #nav-bar {
+  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.2);
+}
+
+@media (-moz-content-prefers-color-scheme: dark) {
+  :root #nav-bar {
+    box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
+  }
 }
