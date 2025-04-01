@@ -308,20 +308,18 @@
  */
 /* #context-navigation, */
 /* #context-sep-navigation, */
-/* #context-bookmarklink, */
 /* #context-viewinfo, */
 /* #context-viewpartialsource-selection, */
-#inspect-separator,
 /* #context-savelink, */
 /* #context-sendimage, */
-#context-setDesktopBackground
-
 /* #context_reloadTab, */
 /* #context_moveTabOptions, */
 /* #context_bookmarkTab, */
 /* .bookmarks-actions-menuseparator, */
-/* .openintabs-menuitem { */
-  {
+/* .openintabs-menuitem */
+#context-bookmarklink,
+#inspect-separator,
+#context-setDesktopBackground {
   display: none !important;
 }
 
