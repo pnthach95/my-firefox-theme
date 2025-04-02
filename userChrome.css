@@ -1,6 +1,6 @@
 * {
-  --tab-selected-bgcolor: rgba(51, 121, 69, 0.5);
-  --toolbarbutton-active-background: rgba(51, 121, 69, 0.5);
+  --tab-selected-bgcolor: hsl(from AccentColor h s calc(l - 20));
+  --toolbarbutton-active-background: hsl(from AccentColor h s calc(l - 20));
   --arrowpanel-background: rgb(10, 32, 27);
 }
 
