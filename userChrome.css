@@ -2,6 +2,7 @@
   --tab-selected-bgcolor: hsl(from AccentColor h s calc(l - 20));
   --toolbarbutton-active-background: hsl(from AccentColor h s calc(l - 20));
   --arrowpanel-background: rgb(10, 32, 27);
+  --focus-outline-color: AccentColor
 }
 
 .titlebar-close:hover {
