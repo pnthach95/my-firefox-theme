@@ -1,7 +1,6 @@
 * {
   --tab-selected-bgcolor: hsl(from AccentColor h s calc(l - 20));
   --toolbarbutton-active-background: hsl(from AccentColor h s calc(l - 20));
-  --arrowpanel-background: rgb(10, 32, 27);
   --focus-outline-color: AccentColor
 }
 
@@ -282,7 +281,7 @@
 /* Compact bookmarks */
 /* ----------------- */
 
-#personal-bookmarks menupopup .bookmark-item {
+#personal-bookmarks .bookmark-item {
   margin-left: 0px !important;
   margin-right: 0px !important;
   padding-inline-start: 5px !important;
@@ -293,10 +292,24 @@
 #PlacesToolbar menuitem,
 #PlacesToolbar menu {
   margin: 0 !important;
+  appearance: auto !important;
 }
 
-#PlacesToolbar menupopup {
+#PlacesToolbar {
   --panel-subview-body-padding: 0;
+}
+
+.toolbar-menupopup,
+menupopup {
+  appearance: auto !important;
+  --panel-background: transparent !important;
+  --panel-shadow-margin: 0 !important;
+}
+
+panel {
+  appearance: menupopup !important;
+  --panel-background: transparent !important;
+  --panel-border-color: transparent;
 }
 
 /* ----------------- */
@@ -364,7 +377,7 @@
   background-color: transparent !important;
 }
 
-#sidebar{
+#sidebar {
   box-shadow: none !important;
   border: none !important;
 }
