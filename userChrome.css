@@ -382,3 +382,7 @@ panel {
   box-shadow: none !important;
   border: none !important;
 }
+
+:not(:hover) #sidebar-tools-and-extensions-splitter {
+  background-color: transparent !important;
+}
