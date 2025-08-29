@@ -303,7 +303,6 @@
 menupopup {
   appearance: auto !important;
   --panel-background: transparent !important;
-  --panel-shadow-margin: 0 !important;
 }
 
 panel {
