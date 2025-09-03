@@ -305,12 +305,12 @@ menupopup {
   --panel-background: transparent !important;
 }
 
-panel {
+/* panel {
   appearance: menupopup !important;
   --panel-background: transparent !important;
   --panel-border-color: transparent !important;
   --panel-shadow: none !important;
-}
+} */
 
 /* ----------------- */
 /*        END        */
