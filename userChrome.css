@@ -62,29 +62,29 @@
 
 /*** URL bar enlargement or lack thereof ***/
 
-[uidensity="compact"] #urlbar[breakout][breakout-extend] {
+[uidensity="compact"] .urlbar[breakout][breakout-extend] {
   top: calc(3px - var(--mbarstyler-popout-pixels) + 1px) !important;
   /* updated for Proton */
 }
 
-[uidensity="touch"] #urlbar[breakout][breakout-extend] {
+[uidensity="touch"] .urlbar[breakout][breakout-extend] {
   top: calc(4px - var(--mbarstyler-popout-pixels) + 1px) !important;
   /* updated for Proton */
 }
 
 /* Prevent shift of URL bar contents */
-#urlbar[breakout][breakout-extend]>#urlbar-input-container {
+.urlbar[breakout][breakout-extend]>#urlbar-input-container {
   height: var(--urlbar-height) !important;
   padding: 0 !important;
 }
 
 /* Do not animate */
-#urlbar[breakout][breakout-extend]>#urlbar-background {
+.urlbar[breakout][breakout-extend]>.urlbar-background {
   animation: none !important;
 }
 
 /* Remove shadows */
-#urlbar[breakout][breakout-extend]>#urlbar-background {
+.urlbar[breakout][breakout-extend]>.urlbar-background {
   box-shadow: none !important;
 }
 
@@ -251,8 +251,8 @@
 
 /* Bookmark background color */
 
-#urlbar:not([focused]) #urlbar-input,
-#urlbar:not([focused]) .urlbar-input {
+.urlbar:not([focused]) #urlbar-input,
+.urlbar:not([focused]) .urlbar-input {
   text-align: center !important;
 }
 
@@ -261,13 +261,20 @@
   border-image-slice: 0 !important;
 }
 
-#urlbar-background {
+.urlbar-background {
   border: 0 !important;
   background-color: transparent !important;
 }
 
-#urlbar:hover,
-#urlbar:focus-within {
+.searchmode-switcher {
+  background-color: transparent !important;
+}
+
+.urlbar:hover {
+  background: #47474755 !important;
+}
+
+.urlbar:focus-within {
   background: #474747 !important;
   border-radius: 4px !important;
   transition: background 250ms;
