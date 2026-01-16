@@ -392,3 +392,16 @@ panel:not(.autoscroller) {
 :not(:hover) #sidebar-tools-and-extensions-splitter {
   background-color: transparent !important;
 }
+
+/* https://www.reddit.com/r/FirefoxCSS/comments/1qcvqig/firefox_147_browserstack_now_browsercontainer_but/ */
+.browserContainer {
+  outline: none !important;
+  box-shadow: none !important;
+
+  @media -moz-pref("sidebar.revamp") {
+    & {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
