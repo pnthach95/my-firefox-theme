@@ -310,6 +310,8 @@
 menupopup {
   appearance: auto !important;
   --panel-background: transparent !important;
+  --panel-border-color: transparent !important;
+  --panel-shadow-margin: 0px !important;
 }
 
 panel:not(.autoscroller) {
@@ -378,7 +380,10 @@ panel:not(.autoscroller) {
 :root #TabsToolbar,
 :root #titlebar,
 :root #tabbrowser-tabs,
-.browser-toolbox-background {
+#navigator-toolbox,
+.buttons-wrapper,
+.wrapper,
+#tabbrowser-tabbox {
   -moz-default-appearance: -moz-window-titlebar !important;
   appearance: -moz-window-titlebar !important;
   background-color: transparent !important;
@@ -404,4 +409,9 @@ panel:not(.autoscroller) {
       box-shadow: none !important;
     }
   }
+}
+
+/* FF 150 */
+body {
+  background-color: transparent !important;
 }
