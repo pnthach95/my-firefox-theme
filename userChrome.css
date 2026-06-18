@@ -309,7 +309,7 @@
 .toolbar-menupopup,
 menupopup {
   appearance: auto !important;
-  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
   --panel-border-color: transparent !important;
   --panel-shadow-margin: 0px !important;
 }
