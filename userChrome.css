@@ -1,7 +1,8 @@
 * {
   --tab-selected-bgcolor: hsl(from AccentColor h s calc(l - 20));
   --toolbarbutton-active-background: hsl(from AccentColor h s calc(l - 20));
-  --focus-outline-color: AccentColor
+  --focus-outline-color: AccentColor;
+  --toolbar-background-color: transparent; /* FF 157 */
 }
 
 .titlebar-close:hover {
